@@ -1,0 +1,26 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| LazyStrings Routes
+|--------------------------------------------------------------------------
+|
+| Route used to generate strings, will display a message if
+| the strings are generated succesfully.
+|
+*/
+
+$routeName = Config::get('lazy-strings.strings-route');
+
+Route::get($routeName, function () {
+    $lazyStrings = $this->app['lazy-strings'];
+    $lazyStrings->generate();
+
+    $metadata = $lazyStrings->getMetadata();
+
+    $viewData['lazyVersion'] = $lazyStrings::VERSION;
+    $viewData['refreshedBy'] = $metadata['refreshedBy'];
+    $viewData['refreshedOn'] = $metadata['refreshedOn'];
+
+    return View::make('lazy-strings::lazy', $viewData);
+});

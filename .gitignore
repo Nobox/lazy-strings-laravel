@@ -1,0 +1,4 @@
+.DS_Store
+/vendor
+*.sublime-project
+*.sublime-workspace
