@@ -5,7 +5,7 @@ namespace Nobox\LazyStrings;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Config;
-use Nobox\LazyStrings\Commands\LazyDeployCommand;
+use Nobox\LazyStrings\LazyDeployCommand;
 use Nobox\LazyStrings\LazyStrings;
 
 class LazyStringsServiceProvider extends ServiceProvider
