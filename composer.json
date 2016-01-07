@@ -23,7 +23,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.5.9",
         "nobox/lazy-strings": "^5.0",
         "illuminate/support": "5.1.*",
         "illuminate/console": "5.1.*",
