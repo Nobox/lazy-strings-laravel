@@ -4,7 +4,6 @@ namespace Nobox\LazyStrings;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Config;
 use Nobox\LazyStrings\LazyDeployCommand;
 use Nobox\LazyStrings\LazyStrings;
 
@@ -43,11 +42,11 @@ class LazyStringsServiceProvider extends ServiceProvider
         // add LazyStrings class to app container
         $this->app->bind('lazy-strings', function ($app) {
             return new LazyStrings([
-                'url'    => Config::get('lazy-strings.csv-url'),
-                'sheets' => Config::get('lazy-strings.sheets'),
+                'url'    => config('lazy-strings.csv-url'),
+                'sheets' => config('lazy-strings.sheets'),
                 'target' => base_path() . '/resources/lang',
-                'backup' => storage_path() . '/' . Config::get('lazy-strings.target-folder'),
-                'nested' => Config::get('lazy-strings.nested')
+                'backup' => storage_path() . '/' . config('lazy-strings.target-folder'),
+                'nested' => config('lazy-strings.nested')
             ]);
         });
 
