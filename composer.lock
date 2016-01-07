@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "123101f71235422c837689edbcaba49c",
-    "content-hash": "5a5a38f12e60aa88795ae6d2e1c29c1b",
+    "hash": "0c8cb61fbecf2846e572db7c1d43f360",
+    "content-hash": "63dcfb17c4d8668d5749a6e4be66f1db",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -835,16 +835,16 @@
         },
         {
             "name": "nobox/lazy-strings",
-            "version": "dev-agnostic",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nobox/Lazy-Strings.git",
-                "reference": "167e90d5f63d9042118c8f396c27b3fff9650079"
+                "reference": "f33f58ebb2feee57206fba027447feb6d1e657d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nobox/Lazy-Strings/zipball/167e90d5f63d9042118c8f396c27b3fff9650079",
-                "reference": "167e90d5f63d9042118c8f396c27b3fff9650079",
+                "url": "https://api.github.com/repos/Nobox/Lazy-Strings/zipball/f33f58ebb2feee57206fba027447feb6d1e657d1",
+                "reference": "f33f58ebb2feee57206fba027447feb6d1e657d1",
                 "shasum": ""
             },
             "require": {
@@ -888,7 +888,7 @@
                 "googledocs",
                 "spreadsheet"
             ],
-            "time": "2016-01-06 22:23:51"
+            "time": "2016-01-07 21:18:51"
         },
         {
             "name": "psr/log",
@@ -3095,9 +3095,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "nobox/lazy-strings": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
