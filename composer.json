@@ -44,5 +44,8 @@
             "Nobox\\LazyStrings\\Tests\\": "tests/"
         }
     },
+    "scripts": {
+        "test": "phpunit"
+    },
     "minimum-stability": "stable"
 }
