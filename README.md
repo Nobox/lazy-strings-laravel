@@ -1,31 +1,29 @@
-# Lazy Strings
+# Lazy Strings for Laravel
 
-Laravel 5 package that creates localized strings from a Google Docs Spreadsheet.
+Laravel 5 service provider for LazyStrings.
 
-[![Build Status](https://travis-ci.org/Nobox/Lazy-Strings.svg?branch=master)](https://travis-ci.org/Nobox/Lazy-Strings)
+[![Build Status](https://travis-ci.org/Nobox/lazy-strings-laravel.svg?branch=1.0)](https://travis-ci.org/Nobox/lazy-strings-laravel)
 
 ## Installation
 Add Lazy Strings to your composer.json file.
 
-```json
-"require": {
-  "nobox/lazy-strings": "dev-master"
-}
+```bash
+composer require nobox/lazy-strings-laravel
 ```
 
-Run the following composer command to install Lazy Strings.
-```bash
-composer update
-```
+## Laravel versions
+Here's a rundown on the version(s) of lazy strings that you can use on your current installed laravel version.
+
+| Laravel version     | Service Provider version to use    |
+| ------------------- | ---------------------------------- |
+| 5.0                 | `1.0.*`                            |
 
 ## Register Lazy Strings
 Register Lazy Strings service provider in the `providers` array located in `config/app.php`
 ```php
-'providers' => array(
-    // ...
-
-    'Nobox\LazyStrings\LazyStringsServiceProvider'
-)
+'providers' => [
+    'Nobox\LazyStrings\LazyStringsServiceProvider',
+]
 ```
 
 ## Publish configuration and assets
@@ -35,9 +33,9 @@ php artisan vendor:publish
 ```
 
 ## Configuration
-Configuration is pretty simple, each configuration item is described below.
+Configuration is pretty simple, each configuration item is described below. More details on how these work can be found in the Lazy Strings repo [here](https://github.com/Nobox/Lazy-Strings).
 
-- `csv-url` Add the Google spreadsheet published url under `File -> Publish to the web...`, replace `pubhtml` with `export?format=csv` at the end and use `http` on the url. Remember that this document must be available to anyone. Use `Public on the web` on your `Sharing settings`. If not, Lazy Strings won't be able to parse it.
+- `csv-url` Add the Google spreadsheet published url.
 ```php
 'csv-url' => 'http://docs.google.com/spreadsheets/d/1V_cHt5Fe4x9XwVepvlXB39sqKXD3xs_QbM-NppkrE4A/export?format=csv'
 ```
@@ -52,18 +50,22 @@ Configuration is pretty simple, each configuration item is described below.
 'strings-route' => 'lazy/build-copy'
 ```
 
-- `sheets` Here you'll specify all the sheets in your Google doc (if it's more than one) with their id, each separated by locale. Use an array if using more than one sheet for a locale. Example:
+- `nested` Whether or not you wish your generated strings array to be nested.
 ```php
-'sheets' => array(
-    'en' => array(0, 1626663029),
+'nested' => true,
+```
+
+- `sheets` Here you'll specify all the sheets in your Google doc.
+```php
+'sheets' => [
+    'en' => [0, 1626663029],
     'es' => 1329731586,
     'pt' => 1443604037
-)
+]
 ```
-You can take the id from the spreadsheet using the `gid` variable from your Google doc url. For example, in this spreadsheet: https://docs.google.com/a/nobox.com/spreadsheets/d/1V_cHt5Fe4x9XwVepvlXB39sqKXD3xs_QbM-NppkrE4A/edit#gid=1626663029 the id is `1626663029`.
 
 ## How it works
-Lazy Strings uses an `id => value` convention to access the copy, it generates an `app.php` file inside the specified language locale folder. You can see an example doc here: https://docs.google.com/a/nobox.com/spreadsheets/d/1V_cHt5Fe4x9XwVepvlXB39sqKXD3xs_QbM-NppkrE4A/edit#gid=0.
+Lazy Strings uses an `id => value` convention to access the copy, it generates an `lazy.php` file inside the language locale folder. You can see an example doc here: https://docs.google.com/a/nobox.com/spreadsheets/d/1V_cHt5Fe4x9XwVepvlXB39sqKXD3xs_QbM-NppkrE4A/edit#gid=0.
 
 | id            | value         |
 | ------------- | ------------- |
@@ -73,12 +75,12 @@ Lazy Strings uses an `id => value` convention to access the copy, it generates a
 
 In this doc you can access the first row in your view like this:
 ```php
-trans('app.foo') // returns "Hello!"
+trans('lazy.foo') // returns "Hello!"
 ```
 
 Or in your controller like this:
 ```php
-Lang::get('app.foo'); // returns "Hello!"
+Lang::get('lazy.foo'); // returns "Hello!"
 ```
 
 ## Generate your strings
@@ -86,5 +88,5 @@ Each time you need to generate your strings just visit the specified `strings-ro
 
 You can also use the included artisan command `php artisan lazy:deploy`. It will do exactly the same. This is perfect when you're deploying your application with Forge.
 
-## Still using Laravel 4?
-Refer to the [laravel-4](https://github.com/Nobox/Lazy-Strings/tree/laravel-4) branch.
+## License
+MIT
