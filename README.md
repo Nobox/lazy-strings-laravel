@@ -2,7 +2,7 @@
 
 Laravel 5 service provider for LazyStrings.
 
-[![Build Status](https://travis-ci.org/Nobox/lazy-strings-laravel.svg?branch=1.0)](https://travis-ci.org/Nobox/lazy-strings-laravel)
+[![Build Status](https://travis-ci.org/Nobox/lazy-strings-laravel.svg?branch=1.1)](https://travis-ci.org/Nobox/lazy-strings-laravel)
 
 ## Installation
 Add Lazy Strings to your composer.json file.
