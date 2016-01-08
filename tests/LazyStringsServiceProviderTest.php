@@ -31,7 +31,7 @@ class LazyStringsServiceProviderTest extends TestCase
         $app['config']->set('lazy-strings.sheets', array('en' => 0));
         $app['config']->set('lazy-strings.target-folder', 'lazy-strings');
         $app['config']->set('lazy-strings.nested', true);
-        $app['config']->set('lazy-strings.strings-route', 'lazy/build-copy');
+        $app['config']->set('lazy-strings.strings-route', 'build-copy');
     }
 
     /**
