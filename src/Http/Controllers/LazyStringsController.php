@@ -29,7 +29,7 @@ class LazyStringsController extends Controller
      */
     public function __construct()
     {
-        $this->lazyStrings = App::make('Nobox\LazyStrings\LazyStrings');
+        $this->lazyStrings = App::make('lazy-strings');
     }
 
     /**
